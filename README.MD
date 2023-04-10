@@ -1,36 +1,47 @@
-From level0 to level1
-$ ssh -p 2220 bandit0@bandit.labs.overthewire.org
+# From level0 to level1
+ssh -p 2220 bandit0@bandit.labs.overthewire.org
+
 pass- bandit0
+```shell
 bandit0@bandit:~$ ls
 readme
 bandit0@bandit:~$ cat readme
 NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+```
+>Explanation: - simple command, `ls` and `cat` to show files and read it.
+---
+# From level1 to level2
 
-----------------------------------------------------------------
+ssh -p 2220 bandit1@bandit.labs.overthewire.org
 
-From level1 to level2
-$ ssh -p 2220 bandit1@bandit.labs.overthewire.org
 pass- NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+```shell
 bandit1@bandit:~$ ls
 -
 bandit1@bandit:~$ cat ./-
 rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
-
+```
+> Explanation :- to read a file with name `-` use `./-` because  there dot means current folder and `./-`  relative location of `-` file
 ----------------------------------------------------------------
 
-From level2 to level3
-$ ssh -p 2220 bandit2@bandit.labs.overthewire.org
+# From level2 to level3
+ssh -p 2220 bandit2@bandit.labs.overthewire.org
+
 pass- rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+```shell
 bandit2@bandit:~$ ls
 spaces in this filename
 bandit2@bandit:~$ cat "spaces in this filename"
 aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
-
+```
+> Explantion :- to read file with spaces in its name we should use `" "` because simple writing name can cause every word different command or thing .
 ----------------------------------------------------------------
 
-From level3 to level4
-$ ssh -p 2220 bandit3@bandit.labs.overthewire.org
+# From level3 to level4
+ssh -p 2220 bandit3@bandit.labs.overthewire.org
+
 pass- aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+```shell
 bandit3@bandit:~$ ls
 inhere
 bandit3@bandit:~$ cd inhere
@@ -42,12 +53,15 @@ drwxr-xr-x 3 root    root    4096 Feb 21 22:03 ..
 -rw-r----- 1 bandit4 bandit3   33 Feb 21 22:03 .hidden
 bandit3@bandit:~/inhere$ cat .hidden
 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
-
+```
+> Explanation :- to see `hidden` file use `-a` flag of `ls` to see all files
 ----------------------------------------------------------------
 
-From level4 to level5
-$ ssh -p 2220 bandit4@bandit.labs.overthewire.org
+# From level4 to level5
+ssh -p 2220 bandit4@bandit.labs.overthewire.org
+
 pass- 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+```shell
 bandit4@bandit:~$ ls
 inhere
 bandit4@bandit:~$ cd inhere
@@ -66,12 +80,15 @@ bandit4@bandit:~/inhere$ file ./*
 ./-file09: data
 bandit4@bandit:~/inhere$ cat ./-file07
 lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
-
+```
+> Explanation :- Used `File` command to get information of about all the files in a current directory
 ----------------------------------------------------------------
 
-From level5 to level6
-$ ssh -p 2220 bandit5@bandit.labs.overthewire.org
+# From level5 to level6
+ssh -p 2220 bandit5@bandit.labs.overthewire.org
+
 pass- lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+```shell
 bandit5@bandit:~/inhere$ cd ..
 bandit5@bandit:~$ ls
 inhere
@@ -84,12 +101,15 @@ bandit5@bandit:~/inhere$ find -size 1033c
 ./maybehere07/.file2
 bandit5@bandit:~/inhere$ cat ./maybehere07/.file2
 P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
-
+```
+> Explanation :- Used `-size` flag of `Find` command to get a file of desired  size mentioned in the problem statement .
 ----------------------------------------------------------------
 
-From level6 to level7
-$ ssh -p 2220 bandit6@bandit.labs.overthewire.org
+# From level6 to level7
+ssh -p 2220 bandit6@bandit.labs.overthewire.org
+
 pass- P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
+```shell
 bandit6@bandit:~$ ls
 bandit6@bandit:~$ find / -user bandit7 -group bandit6 -size 33c
 find: ‘/sys/kernel/tracing’: Permission denied
@@ -197,35 +217,43 @@ find: ‘/var/lib/snapd/cookie’: Permission denied
 find: ‘/var/lib/update-notifier/package-data-downloads/partial’: Permission denied
 bandit6@bandit:~$cat /var/lib/dpkg/info/bandit7.password
 z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
-
+```
+> Explanations :- Used `-user` , `-group` , `-size` flag of `Find` command to get desired file containing password
 ----------------------------------------------------------------
 
-From level7 to level8
-$ ssh -p 2220 bandit7@bandit.labs.overthewire.org
+# From level7 to level8
+ssh -p 2220 bandit7@bandit.labs.overthewire.org
+
 pass- z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+```shell
 bandit7@bandit:~$ ls
 data.txt
 bandit7@bandit:~$ grep "millionth" data.txt
 millionth       TESKZC0XvTetK0S9xNwm25STk5iWrBvP
-
+```
+> Explanation :- simply used `grep` to get the word `millionth` 
 ----------------------------------------------------------------
+# From level8 to level9 
+ssh -p 2220 bandit8@bandit.labs.overthewire.org
 
-From level8 to level9 
-$ ssh -p 2220 bandit8@bandit.labs.overthewire.org
 pass- TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+```shell
 bandit8@bandit:~$ ls
 data.txt
 bandit8@bandit:~$ cat data.txt| sort| uniq -u
 EN632PlfYiZbn3PhVK3XOGSlNInNE00t
-
+```
+> Explanations :- used piping to give information of one command to other , used `sort` and `uniq`  command to get desired output 
 ----------------------------------------------------------------
 
-From level9 to level10
-$ ssh -p 2220 bandit9@bandit.labs.overthewire.org
+# From level9 to level10
+ssh -p 2220 bandit9@bandit.labs.overthewire.org
+
 pass- EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+```shell
 bandit9@bandit:~$ ls
 data.txt
-bandit9@bandit:~$ strings data.txt |grep "="
+bandit9@bandit:~$ strings data.txt |grep "="
 dS=5
 f========== theM
 =XeOh
@@ -244,36 +272,45 @@ b=fFD
 0?F=(
 .DX_/=
 ========== G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
-
+```
+> Explanation :- Used `strings` command to get all ascii strings and `grep` only strings that have `=`
 ----------------------------------------------------------------
 
-From level10 to level11
-$ ssh -p 2220 bandit10@bandit.labs.overthewire.org
+# From level10 to level11
+ssh -p 2220 bandit10@bandit.labs.overthewire.org
+
 pass- G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+```shell
 bandit10@bandit:~$ ls
 data.txt
 bandit10@bandit:~$ cat data.txt
 VGhlIHBhc3N3b3JkIGlzIDZ6UGV6aUxkUjJSS05kTllGTmI2blZDS3pwaGxYSEJNCg==
 bandit10@bandit:~$ echo "VGhlIHBhc3N3b3JkIGlzIDZ6UGV6aUxkUjJSS05kTllGTmI2blZDS3pwaGxYSEJNCg==" | base64 -d
 The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
-
+```
+> Explanation :- used basic commands to decode `base64` text.
 ----------------------------------------------------------------
 
-From level11 to level12
-$ ssh -p 2220 bandit11@bandit.labs.overthewire.org
+# From level11 to level12
+ssh -p 2220 bandit11@bandit.labs.overthewire.org
+
 pass- 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+```shell
 bandit11@bandit:~$ ls
 data.txt
 bandit11@bandit:~$ cat data.txt
 Gur cnffjbeq vf WIAOOSFzMjXXBC0KoSKBbJ8puQm5lIEi
 by ROT13 decryptor :-
 The password is JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
-
+```
+> Explanation :- used online website to decrypt `ROT13` encoded code.
 ----------------------------------------------------------------
 
-From level12 to level13
-$ ssh -p 2220 bandit12@bandit.labs.overthewire.org
+# From level12 to level13
+ssh -p 2220 bandit12@bandit.labs.overthewire.org
+
 pass- JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+```shell
 bandit12@bandit:~$ ls
 data.txt
 bandit12@bandit:~$ cd /tmp
@@ -346,12 +383,15 @@ bandit12@bandit:/tmp/why$ file data
 data: ASCII text
 bandit12@bandit:/tmp/why$ cat data
 The password is wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
-
+```
+> Explanation :- transfered the file to `/tmp` folder and reversing hex dump by `xxd` . Renaming the file to desired extension for uncompress while getting info of file type by `File` command . Used `gzip bzip2 and tar` to uncompress respectively.
 ----------------------------------------------------------------
 
-From level13 to level14
-$ ssh -p 2220 bandit13@bandit.labs.overthewire.org
+# From level13 to level14
+ssh -p 2220 bandit13@bandit.labs.overthewire.org
+
 pass- wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+```
 bandit13@bandit:~$ ls
 sshkey.private
 bandit13@bandit:~$ cat sshkey.private
@@ -424,20 +464,27 @@ bandit14@bandit:~$ cd /etc/bandit_ass
 bandit14@bandit:~$ cd /etc/bandit_pass
 bandit14@bandit:/etc/bandit_pass$ cat bandit14
 fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
-
+```
+> Explanation :- copied private key to `local system` and use `ssh` command flag `-i` to give private key.
 ----------------------------------------------------------------
 
-From level14 to level15
-$ ssh -p 2220 bandit14@bandit.labs.overthewire.org
+# From level14 to level15
+ssh -p 2220 bandit14@bandit.labs.overthewire.org
+
 pass- fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+```shell
 bandit14@bandit:~$ nc localhost 30000
 fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
 Correct!
 jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+```
+> Explanation :- Simple `netcat(nc)` to the localhost with the port `30000` and submiting the password .
+---
 
-----------------------------------------------------------------
+# finally reached level 15!!!
 
-finally reached level 15
+>Loved to solve this challenge :heart:. It encouraged me toward ethical hacking :man_technologist: .
+while writing this markdown file i got to know about markdown files and how to beautify them which is also cool.
 
 
 
